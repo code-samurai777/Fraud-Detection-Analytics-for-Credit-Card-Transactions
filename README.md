@@ -6,7 +6,7 @@ This project presents an end-to-end fraud detection analytics solution using mac
 
 ---
 
-## Business Problem
+## Problem Statement
 Credit card fraud results in significant financial losses and operational inefficiencies. Traditional rule-based detection systems often fail to adapt to evolving fraud patterns and generate excessive false alerts.
 
 **Objective:**
@@ -71,23 +71,36 @@ Recall was prioritized to minimize missed fraudulent transactions.
 
 ---
 
-## Model Performance (Estimated)
+## Model Performance Summary
 
-| Metric | Result |
-|------|--------|
-| Fraud Recall | 85–90% |
-| Precision | 80–85% |
-| ROC-AUC Score | 0.92+ |
-| False Positive Reduction | Approximately 30–40% |
-| Overall Accuracy | Greater than 99% (not the primary metric due to class imbalance) |
+The Random Forest classifier achieved the strongest trade-off between fraud detection and false alerts:
+
+- Fraud Recall: High sensitivity to fraudulent transactions
+- ROC-AUC: Strong class separability
+- Precision: Maintained acceptable false alert rates
+- Accuracy: >99% (reported for completeness, not used for optimization)
+
+Threshold tuning was applied to improve recall for the fraud class.
+
+#### Threshold Optimization
+
+Instead of using the default probability threshold (0.5), decision thresholds were adjusted to improve fraud recall.
+
+Lowering the threshold increased the detection of fraudulent transactions at the expense of additional false positives, reflecting a realistic fraud investigation trade-off.
+
+---
+
+
 
 ---
 
 ## Key Insights
-- Addressing class imbalance significantly improved fraud detection recall (approximately 40%)  
-- Ensemble models, particularly Random Forest, delivered more stable performance  
-- Feature scaling improved model convergence efficiency  
-- Visual diagnostics enhanced interpretability for non-technical stakeholders  
+
+- Extreme class imbalance (0.17% fraud) renders accuracy an unreliable performance metric
+- Recall-focused optimization significantly improved fraud detection coverage
+- Ensemble models provided more stable predictions under imbalanced conditions
+- Fraudulent transactions exhibit distinct patterns in PCA-transformed feature space
+- Model outputs can be directly integrated into risk-scoring workflows for investigation teams
 
 ---
 
@@ -96,3 +109,14 @@ Recall was prioritized to minimize missed fraudulent transactions.
 - Reduces manual review effort by lowering false positive alerts  
 - Demonstrates a scalable analytics approach for financial risk teams  
 - Provides a data-driven alternative to static fraud detection rules  
+
+---
+
+## Limitations and Assumptions
+
+- The dataset uses PCA-transformed features, limiting direct business interpretability
+- SMOTE may introduce synthetic patterns not present in real fraud behavior
+- Temporal transaction patterns were not modeled
+- Dataset represents historical data and may not reflect evolving fraud strategies
+
+Future improvements include cost-based optimization, temporal modeling, and real-time scoring simulations.

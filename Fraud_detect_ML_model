@@ -1,0 +1,20 @@
+## Key Parameters 
+
+Algorithm: Random Forest
+
+Task: Binary classification
+
+Use case: Credit card fraud detection
+
+--- 
+## Model termcase
+
+This model takes credit card transaction features as input
+(amount, time, anonymized features like V1–V28, etc.)
+
+Outputs one of two classes:
+
+0 → Normal / Legit transaction
+1 → Fraudulent transaction
+
+So at runtime, it answers whether the given transaction’s pattern appears to be fraudulent or not.

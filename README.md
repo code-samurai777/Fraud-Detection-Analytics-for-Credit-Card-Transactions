@@ -17,7 +17,8 @@ Credit card fraud results in significant financial losses and operational ineffi
 ---
 
 ## Dataset Description
-- **Source:** Kaggle – Credit Card Fraud Detection dataset  
+- **Source:** Kaggle — Credit Card Fraud Detection Dataset  
+  https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 - **Total Transactions:** 284,807  
 - **Fraud Cases:** 492 (approximately 0.17%)  
 - **Primary Challenge:** Extreme class imbalance  
@@ -87,9 +88,6 @@ Threshold tuning was applied to improve recall for the fraud class.
 Instead of using the default probability threshold (0.5), decision thresholds were adjusted to improve fraud recall.
 
 Lowering the threshold increased the detection of fraudulent transactions at the expense of additional false positives, reflecting a realistic fraud investigation trade-off.
-
----
-
 
 
 ---
